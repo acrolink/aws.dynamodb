@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Execute Dynamo DB API Request</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>dynamoHTTP {aws.dynamodb}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Execute Dynamo DB API Request</h2>
+
+<h3>Description</h3>
+
+<p>This is the workhorse function to execute calls to the Dynamo DB API.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dynamoHTTP(
+  verb = "GET",
+  headers = list(),
+  body = NULL,
+  target,
+  verbose = getOption("verbose", FALSE),
+  region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"),
+  key = NULL,
+  secret = NULL,
+  session_token = NULL,
+  url = Sys.getenv("AWS_LOCAL_ENDPOINT"),
+  ...
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;"><td><code>verb</code></td>
+<td>
+<p>A character string specifying an HTTP verb for the operation.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>headers</code></td>
+<td>
+<p>A list of headers to pass to the HTTP request.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>body</code></td>
+<td>
+<p>A list of body (JSON) arguments.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>target</code></td>
+<td>
+<p>An API endpoint.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>verbose</code></td>
+<td>
+<p>A logical indicating whether to be verbose. Default is given by <code>options("verbose")</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>region</code></td>
+<td>
+<p>A character string containing an AWS region. If missing, the default &ldquo;us-east-1&rdquo; is used.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>key</code></td>
+<td>
+<p>A character string containing an AWS Access Key ID. See <code><a href="../../aws.signature/help/locate_credentials.html">locate_credentials</a></code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>secret</code></td>
+<td>
+<p>A character string containing an AWS Secret Access Key. See <code><a href="../../aws.signature/help/locate_credentials.html">locate_credentials</a></code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>session_token</code></td>
+<td>
+<p>Optionally, a character string containing an AWS temporary Session Token. See <code><a href="../../aws.signature/help/locate_credentials.html">locate_credentials</a></code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed to <code><a href="../../httr/help/GET.html">GET</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function constructs and signs an Dynamo DB API request and returns the results thereof, or relevant debugging information in the case of error.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If successful, a named list. Otherwise, a data structure of class &ldquo;aws-error&rdquo; containing any error message(s) from AWS and information about the request attempt.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Thomas J. Leeper
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>aws.dynamodb</em> version 0.1.2 <a href="00Index.html">Index</a>]</div>
+</div>
+</body></html>

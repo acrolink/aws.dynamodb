@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Create/Update Dynamo DB Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table style="width: 100%;"><tr><td>create_table {aws.dynamodb}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create/Update Dynamo DB Table</h2>
+
+<h3>Description</h3>
+
+<p>Create or update a Dynamo DB Table
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>create_table(
+  table,
+  attributes,
+  primary_key,
+  sort_key = NULL,
+  read_capacity = 5,
+  write_capacity = 5,
+  ...
+)
+
+update_table(table, read_capacity = 5, write_capacity = 5, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr style="vertical-align: top;"><td><code>table</code></td>
+<td>
+<p>A character string specifying the table name.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>attributes</code></td>
+<td>
+<p>A named list of key-value pairs, where the key is the attribute name and value is one of &ldquo;S&rdquo; (string), &ldquo;N&rdquo; (number), or &ldquo;B&rdquo; (binary). Users only need to specify the attribute(s) used for the primary key.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>primary_key</code></td>
+<td>
+<p>The primary key for the database. This should be the name of one of the attributes specified in <code>attributes</code>.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>read_capacity</code></td>
+<td>
+<p>A number specifying read capacity units (i.e., number of reads per second). See References.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>write_capacity</code></td>
+<td>
+<p>A number specifying write capacity units (i.e., number of reads per second). See References.</p>
+</td></tr>
+<tr style="vertical-align: top;"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed to <code><a href="../../aws.dynamodb/help/dynamoHTTP.html">dynamoHTTP</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html">API Guide: CreateTable</a>
+<a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Provisioned Throughput</a>
+<a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+  tab &lt;- create_table(
+    table = "Music",
+    attributes = list(Artist = "S", SongTitle = "S"),
+    primary_key = "Artist",
+    sort_key = "SongTitle"
+  )
+
+  # cleanup
+  delete_table(tab)
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>aws.dynamodb</em> version 0.1.2 <a href="00Index.html">Index</a>]</div>
+</div>
+</body></html>

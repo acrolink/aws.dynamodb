@@ -1,0 +1,15 @@
+aws.dynamodb-package	aws.dynamodb-package
+aws.dynamodb	aws.dynamodb-package
+create_table	create_table
+create_table_backup	create_table_backup
+delete_item	delete_item
+delete_table	delete_table
+dynamoHTTP	dynamoHTTP
+get_item	get_item
+get_table	get_table
+list_tables	list_tables
+list_table_backups	list_table_backups
+put_item	put_item
+restore_table_backup	create_table_backup
+update_item	update_item
+update_table	create_table

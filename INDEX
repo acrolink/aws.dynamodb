@@ -1,0 +1,12 @@
+aws.dynamodb-package    aws.dynamodb
+create_table            Create/Update Dynamo DB Table
+create_table_backup     Backup a Dynamo DB Table
+delete_item             Get Dynamo DB Item
+delete_table            Delete a Dynamo DB Table
+dynamoHTTP              Execute Dynamo DB API Request
+get_item                Get Dynamo DB Item
+get_table               Get Dynamo DB Tables
+list_table_backups      List Dynamo DB Backups
+list_tables             List Dynamo DB Tables
+put_item                Put an item
+update_item             Update Dynamo DB Item
